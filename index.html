@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>JBB Futuro PRO</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    </head>
+    <style>
+        /* Estilos generales */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: Arial, sans-serif;
+ font-size: 16px;
+ line-height: 1.5;
+ background-image: url("https://images.pexels.com/photos/1102846/pexels-photo-1102846.jpeg?cs=srgb&dl=arquitectura-edificio-foto-de-angulo-bajo-frankfurt-1102846.jpg&fm=jpg");
+ background-size: cover;
+}
+
+/* Estilos del encabezado */
+header {
+ background-color: #fff;
+ box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px 30px;
+ max-width: 1200px;
+ margin: 0 auto;
+}
+
+.logo img {
+ height: 60px;
+}
+
+/* Estilos del contenido principal */
+main {
+ max-width: 1200px;
+ margin: 40px auto;
+ padding: 0 30px;
+}
+
+h1 {
+ font-size: 36px;
+ margin-bottom: 20px;
+}
+
+p {
+ font-size: 18px;
+ margin-bottom: 10px;
+}
+
+input[type="file"] {
+ display: block;
+ margin-bottom: 20px;
+}
+
+#resultado {
+ font-size: 18px;
+ color: green;
+ margin-top: 20px;
+}
+
+     </style>
+
+ </head>
+    <body>  
+        <header>
+            <nav>
+                <div class="logo">
+                    <a href="#">
+                        <img src="http://www.jbbtasadores.com/templates/template_jbbtasadores/images/logos/JBB-logo-bigger.png" alt="JBB Futuro PRO">
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1>JBB Futuro PRO</h1>
+            <p><label>Selecciona un nuevo archivo!</label></p>
+            <input type="file" id="subir_archivo" />
+            <div id="resultado"></div>
+        </main>
+        <script type="text/javascript" src="resources/js/scripts.js"></script>
+    </body>
+</html>
