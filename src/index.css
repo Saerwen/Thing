@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+
+  /* Respect reduced-motion preferences. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold
+           transition-all duration-150 select-none focus:outline-none focus-visible:ring-2
+           focus-visible:ring-primary/40 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white shadow-card hover:bg-primary-dark active:scale-[0.98];
+  }
+  .btn-gold {
+    @apply btn bg-gold text-ink shadow-card hover:brightness-105 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-primary hover:bg-primary/5;
+  }
+  .btn-outline {
+    @apply btn border-2 border-ink/10 bg-surface text-ink hover:border-primary/30 hover:bg-primary/5;
+  }
+
+  .card {
+    @apply rounded-3xl bg-surface shadow-card;
+  }
+
+  /* The boutique-bank paper texture for the app background. */
+  .app-bg {
+    background-color: #faf7f2;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(75, 46, 131, 0.05), transparent 38%),
+      radial-gradient(circle at 88% 8%, rgba(201, 162, 75, 0.06), transparent 34%),
+      radial-gradient(circle at 75% 92%, rgba(31, 111, 107, 0.045), transparent 40%);
+  }
+}
