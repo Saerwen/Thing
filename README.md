@@ -74,6 +74,18 @@ There are **~400 questions across 20 units** (18–30 per unit), covering every 
 
 ---
 
+## Install on your phone (PWA via GitHub Pages)
+
+The app is an installable **Progressive Web App** — it works offline and can live on your home screen like a native app.
+
+**One-time repo setup:** in GitHub → **Settings → Pages → Build and deployment → Source → "GitHub Actions"**. (The repo must be public, or on a plan that allows Pages for private repos.)
+
+After that, every push to `main` (or the dev branch) runs `.github/workflows/deploy.yml`, which builds and publishes to Pages. The site URL is **`https://<your-user>.github.io/Thing/`** (shown in the workflow's deploy step and under Settings → Pages).
+
+**On your iPhone:** open that URL in **Safari → Share → Add to Home Screen**. Launch it from the new icon and it runs full-screen, offline, with progress saved on the device. (Android/Chrome: menu → *Install app*.)
+
+> The Pages base path is `/Thing/`, set in `vite.config.ts` (`base`) when the `GITHUB_PAGES` env var is present — the deploy workflow sets it. Local `npm run dev`/`build` stays at `/`. PWA config (manifest, icons, offline precache) lives in `vite.config.ts` under `VitePWA`.
+
 ## Project structure
 
 ```
