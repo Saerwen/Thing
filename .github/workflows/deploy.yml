@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+# Builds the app and publishes it to GitHub Pages. Runs on pushes to main and to
+# the active development branch, plus manual runs. One-time setup: in the repo,
+# Settings → Pages → "Build and deployment" → Source → "GitHub Actions".
+
+on:
+  push:
+    branches:
+      - main
+      - claude/privatus-trainer-app-5PmvV
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes supersede in-progress ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # NOTE: GitHub Pages must be enabled once by hand:
+      #   repo → Settings → Pages → Build and deployment → Source → "GitHub Actions"
+      # (The default GITHUB_TOKEN is not permitted to enable Pages automatically.)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build (GitHub Pages base path)
+        run: npm run build
+        env:
+          GITHUB_PAGES: 'true'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
