@@ -26,11 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Enables GitHub Pages for the repo (source = GitHub Actions) on first run,
-      # so no manual Settings → Pages step is required.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      # NOTE: GitHub Pages must be enabled once by hand:
+      #   repo → Settings → Pages → Build and deployment → Source → "GitHub Actions"
+      # (The default GITHUB_TOKEN is not permitted to enable Pages automatically.)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
