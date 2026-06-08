@@ -27,7 +27,7 @@ export function HomeMap({
   return (
     <div className="min-h-screen app-bg pb-24">
       {/* Header */}
-      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/85 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/85 backdrop-blur pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-4 py-3.5">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary font-serif text-xl font-bold text-gold shadow-node">

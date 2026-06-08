@@ -201,7 +201,7 @@ export function Lesson({
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header: exit, progress bar, remaining, countdown */}
-      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/90 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/90 backdrop-blur pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3">
           <button
             type="button"
@@ -319,7 +319,7 @@ function FeedbackBar({
   // Answering state
   if (phase === 'answering') {
     return (
-      <footer className="sticky bottom-0 border-t border-ink/5 bg-surface/95 backdrop-blur">
+      <footer className="sticky bottom-0 border-t border-ink/5 bg-surface/95 backdrop-blur pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto flex max-w-2xl justify-end px-4 py-4">
           <button
             type="button"
@@ -337,7 +337,7 @@ function FeedbackBar({
   // Feedback state for writing (self-grade)
   if (isWriting && correct === null) {
     return (
-      <footer className="sticky bottom-0 border-t-2 border-gold/30 bg-gold/5 backdrop-blur">
+      <footer className="sticky bottom-0 border-t-2 border-gold/30 bg-gold/5 backdrop-blur pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto max-w-2xl px-4 py-4">
           <p className="mb-3 text-center font-serif text-lg font-semibold text-ink">
             Did you cover the key points?
@@ -359,7 +359,7 @@ function FeedbackBar({
   const good = correct === true;
   return (
     <footer
-      className={`sticky bottom-0 border-t-2 backdrop-blur ${
+      className={`sticky bottom-0 border-t-2 backdrop-blur pb-[env(safe-area-inset-bottom)] ${
         good ? 'border-success/30 bg-success/5' : 'border-error/30 bg-error/5'
       }`}
     >

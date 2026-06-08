@@ -34,7 +34,7 @@ export function Settings({ soundOn, onToggleSound, onReset, onClose }: Props) {
 
   return (
     <div className="min-h-screen app-bg pb-20">
-      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/85 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-ink/5 bg-cream/85 backdrop-blur pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-xl items-center gap-3 px-4 py-3.5">
           <button
             type="button"
