@@ -98,22 +98,23 @@ export function HomeMap({
             const offset = Math.round(Math.sin(i * 0.7) * 96);
             const labelOnLeft = offset > 4;
             return (
-              <li
-                key={unit.id}
-                className="flex w-full items-center justify-center"
-                style={{ transform: `translateX(${offset}px)` }}
-              >
-                {labelOnLeft && (
-                  <UnitLabel unit={unit} status={status} align="right" />
-                )}
-                <UnitNode
-                  unit={unit}
-                  status={status}
-                  inProgress={status === 'inProgress' ? inProgress : null}
-                  onClick={() => onOpenUnit(unit.id)}
-                  onDeadlineMiss={onDeadlineMiss}
-                />
-                {!labelOnLeft && <UnitLabel unit={unit} status={status} align="left" />}
+              <li key={unit.id} className="flex w-full items-center justify-center">
+                {/* Shift only the node cluster, not the full-width row, so the
+                    zig-zag offset never overflows the viewport on the right. */}
+                <div
+                  className="flex items-center justify-center"
+                  style={{ transform: `translateX(${offset}px)` }}
+                >
+                  {labelOnLeft && <UnitLabel unit={unit} status={status} align="right" />}
+                  <UnitNode
+                    unit={unit}
+                    status={status}
+                    inProgress={status === 'inProgress' ? inProgress : null}
+                    onClick={() => onOpenUnit(unit.id)}
+                    onDeadlineMiss={onDeadlineMiss}
+                  />
+                  {!labelOnLeft && <UnitLabel unit={unit} status={status} align="left" />}
+                </div>
               </li>
             );
           })}
