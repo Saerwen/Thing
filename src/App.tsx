@@ -6,9 +6,10 @@ import { Lesson, type SessionStats } from './screens/Lesson';
 import { UnitResults } from './screens/UnitResults';
 import { Victory } from './screens/Victory';
 import { Settings } from './screens/Settings';
+import { Manual } from './screens/Manual';
 import { Modal } from './components/Modal';
 
-type Screen = 'map' | 'lesson' | 'results' | 'victory' | 'settings';
+type Screen = 'map' | 'lesson' | 'results' | 'victory' | 'settings' | 'manual';
 
 export default function App() {
   const progress = useProgress();
@@ -66,6 +67,7 @@ export default function App() {
           completedCount={state.completed.length}
           onOpenUnit={openUnit}
           onOpenSettings={() => setScreen('settings')}
+          onOpenManual={() => setScreen('manual')}
           onDeadlineMiss={handleDeadlineMiss}
         />
       )}
@@ -104,6 +106,8 @@ export default function App() {
           }}
         />
       )}
+
+      {screen === 'manual' && <Manual onClose={() => setScreen('map')} />}
 
       {screen === 'settings' && (
         <Settings

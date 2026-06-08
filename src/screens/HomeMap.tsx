@@ -11,6 +11,7 @@ interface Props {
   completedCount: number;
   onOpenUnit: (id: number) => void;
   onOpenSettings: () => void;
+  onOpenManual: () => void;
   onDeadlineMiss: () => void;
 }
 
@@ -21,6 +22,7 @@ export function HomeMap({
   completedCount,
   onOpenUnit,
   onOpenSettings,
+  onOpenManual,
   onDeadlineMiss,
 }: Props) {
   const total = units.length;
@@ -46,6 +48,21 @@ export function HomeMap({
                 {completedCount}/{total}
               </span>
             </ProgressRing>
+            <button
+              type="button"
+              onClick={onOpenManual}
+              aria-label="Read the manual"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-ink/5 hover:text-ink"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                <path
+                  d="M4 5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v15l-5-2.5L8 20V5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
             <button
               type="button"
               onClick={onOpenSettings}

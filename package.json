@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc -b --noEmit",
-    "extract-manual": "node scripts/extract-manual.mjs"
+    "extract-manual": "node scripts/extract-manual.mjs",
+    "build-manual": "node scripts/build-manual.mjs"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",
